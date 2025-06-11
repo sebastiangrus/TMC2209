@@ -579,6 +579,8 @@ TMC2209::Settings TMC2209::getSettings()
     settings.software_enabled = (chopper_config_.toff > TOFF_DISABLE);
     settings.microsteps_per_step = getMicrostepsPerStep();
     settings.inverse_motor_direction_enabled = global_config_.shaft;
+    settings.index_shows_overtemp = global_config_.index_otpw;
+    settings.index_shows_step = global_config_.index_step;
     settings.stealth_chop_enabled = not global_config_.enable_spread_cycle;
     settings.standstill_mode = pwm_config_.freewheel;
     settings.irun_percent = currentSettingToPercent(driver_current_.irun);
@@ -601,6 +603,8 @@ TMC2209::Settings TMC2209::getSettings()
     settings.software_enabled = false;
     settings.microsteps_per_step = 0;
     settings.inverse_motor_direction_enabled = false;
+    settings.index_shows_overtemp = false;
+    settings.index_shows_step = false;
     settings.stealth_chop_enabled = false;
     settings.standstill_mode = pwm_config_.freewheel;
     settings.irun_percent = 0;
@@ -780,6 +784,8 @@ void TMC2209::setOperationModeToSerial(SerialAddress serial_address)
 
   global_config_.bytes = 0;
   global_config_.i_scale_analog = 0;
+  global_config_.index_otpw = 0;
+  global_config_.index_step = 1;
   global_config_.pdn_disable = 1;
   global_config_.mstep_reg_select = 1;
   global_config_.multistep_filt = 1;
