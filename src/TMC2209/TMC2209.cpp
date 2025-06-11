@@ -479,6 +479,14 @@ bool TMC2209::hardwareDisabled()
   return input.enn;
 }
 
+bool TMC2209::stallDetected()
+{
+	Input input;
+	input.bytes = read(ADDRESS_IOIN);
+	
+	return input.diag;
+}
+
 uint16_t TMC2209::getMicrostepsPerStep()
 {
   uint16_t microsteps_per_step_exponent;
