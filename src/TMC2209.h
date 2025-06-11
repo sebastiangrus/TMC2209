@@ -188,6 +188,9 @@ public:
   // this pin must be grounded or disconnected before driver may be enabled
   bool hardwareDisabled();
 
+  // autodetect stalls
+  bool stallDetected();
+
   uint16_t getMicrostepsPerStep();
 
   struct Settings
