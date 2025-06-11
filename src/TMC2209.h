@@ -105,6 +105,11 @@ public:
   void enableInverseMotorDirection();
   void disableInverseMotorDirection();
 
+  void enableIndexOvertemp();
+  void disableIndexOvertemp();
+  void enableIndexStep();
+  void disableIndexStep();
+
   enum StandstillMode
   {
     NORMAL=0,
@@ -200,6 +205,8 @@ public:
     bool software_enabled;
     uint16_t microsteps_per_step;
     bool inverse_motor_direction_enabled;
+	  bool index_shows_overtemp;
+	  bool index_shows_step;
     bool stealth_chop_enabled;
     uint8_t standstill_mode;
     uint8_t irun_percent;
