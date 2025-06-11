@@ -296,6 +296,30 @@ void TMC2209::disableInverseMotorDirection()
   writeStoredGlobalConfig();
 }
 
+void TMC2209::enableIndexOvertemp()
+{
+  global_config_.index_otpw = 1;
+  writeStoredGlobalConfig();
+}
+
+void TMC2209::disableIndexOvertemp()
+{
+  global_config_.index_otpw = 0;
+  writeStoredGlobalConfig();
+}
+
+void TMC2209::enableIndexStep()
+{
+  global_config_.index_step = 1;
+  writeStoredGlobalConfig();
+}
+
+void TMC2209::disableIndexStep()
+{
+  global_config_.index_step = 0;
+  writeStoredGlobalConfig();
+}
+
 void TMC2209::setStandstillMode(TMC2209::StandstillMode mode)
 {
   pwm_config_.freewheel = mode;
